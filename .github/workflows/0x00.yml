@@ -40,7 +40,8 @@ jobs:
 
       - name: Fast Install Dependencies
         run: |
-          sudo apt-get install -y --no-install-recommends python3-requests
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg aria2 p7zip-full python3-requests
           
           sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
           sudo chmod a+rx /usr/local/bin/yt-dlp
