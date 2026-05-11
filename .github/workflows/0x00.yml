@@ -199,9 +199,9 @@ jobs:
 
           install_heavy_tools() {
             if [ ! -f "/usr/local/bin/yt-dlp" ]; then
-              echo "⏳ Installing heavy tools (yt-dlp, aria2, bun)..."
+              echo "⏳ Installing heavy tools (yt-dlp, aria2, ffmpeg, bun)..."
               sudo apt-get update -qq
-              sudo apt-get install -y --no-install-recommends aria2 > /dev/null 2>&1
+              sudo apt-get install -y --no-install-recommends aria2 ffmpeg > /dev/null 2>&1
               sudo curl -sL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
               sudo chmod a+rx /usr/local/bin/yt-dlp
               curl -fsSL https://bun.com/install | bash > /dev/null 2>&1
@@ -374,5 +374,5 @@ jobs:
           git config user.name "NET-Sentinel Bot"
           git config user.email "224584266+NetSentinel-Bot@users.noreply.github.com"
           git add --sparse dl/ Links.md
-          git commit -m "Add downloaded files via Panel [skip ci]" || echo "Nothing to commit"
+          git -c committer.name="Diana-Cl" -c committer.email="135276904+Diana-Cl@users.noreply.github.com" commit -m "Add downloaded files via Panel [skip ci] at: $(TZ='Asia/Tehran' date '+%H:%M:%S') [skip ci]" || echo "No changes to commit"
           git push origin HEAD:$BRANCH
